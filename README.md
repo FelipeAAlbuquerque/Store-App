@@ -1,11 +1,11 @@
-# Card Store Backend
+# Sticker Store Backend
 
-This is the backend application for the Card Store project.  
-It provides RESTful APIs to support the Card Store UI, including endpoints for card listings, cart management, and order processing.
+This is the backend application for the Sticker Store App project.  
+It provides RESTful APIs to support the Sticker Store UI, including endpoints for sticker listings, management, and order processing.
 
 ## Features
 
-- REST API for managing cards
+- REST API for managing stickers
 - Shopping cart functionality
 - Order processing endpoints
 - CORS support for frontend integration
