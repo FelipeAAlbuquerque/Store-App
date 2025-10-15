@@ -27,7 +27,6 @@ public class ContactService implements IContactService {
         } catch (Exception exception) {
             return false;
         }
-
     }
 
     private Contact transformToEntity(ContactRequestDto contactRequestDto) {
