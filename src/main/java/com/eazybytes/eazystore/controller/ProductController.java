@@ -29,13 +29,4 @@ public class ProductController {
         return ResponseEntity.ok().body(productList);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception exception,
-                                                                  WebRequest webRequest) {
-        ErrorResponseDto errorResponseDto = new ErrorResponseDto(
-                webRequest.getDescription(false), HttpStatus.SERVICE_UNAVAILABLE,
-                exception.getMessage(), LocalDateTime.now());
-        return new ResponseEntity<>(errorResponseDto, HttpStatus.SERVICE_UNAVAILABLE);
-    }
-
 }
