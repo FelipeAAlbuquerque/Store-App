@@ -1,5 +1,7 @@
 package com.eazybytes.eazystore.security;
 
+import com.eazybytes.eazystore.entity.Customer;
+import com.eazybytes.eazystore.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
