@@ -65,4 +65,4 @@ CREATE TABLE IF NOT EXISTS roles (
     updated_at TIMESTAMP   DEFAULT NULL,
     updated_by VARCHAR(20) DEFAULT NULL,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE
-    );
+);

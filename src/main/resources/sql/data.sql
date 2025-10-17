@@ -88,6 +88,6 @@ VALUES ('NoHesitation', 'Always ready to take charge!', 6.00, 60, '/stickers/IWo
 INSERT INTO products (name, description, price, popularity, image_url, created_at, created_by, updated_at, updated_by)
 VALUES ('Wardgaze', 'Protective power of the evil eye', 6.00, 60, '/stickers/EvilEye.png', CURRENT_TIMESTAMP, 'admin', NULL, NULL);
 
-
+--Not working for now
 INSERT INTO roles (customer_id, name, created_at, created_by)
 VALUES (8, 'ROLE_ADMIN', CURRENT_TIMESTAMP, 'Anonymous user');
