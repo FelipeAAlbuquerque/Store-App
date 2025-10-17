@@ -1,5 +1,6 @@
 package com.eazybytes.eazystore.security;
 
+import com.eazybytes.eazystore.filter.JWTTokenValidatorFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
