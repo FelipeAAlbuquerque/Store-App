@@ -90,4 +90,4 @@ VALUES ('Wardgaze', 'Protective power of the evil eye', 6.00, 60, '/stickers/Evi
 
 --Not working for now
 INSERT INTO roles (customer_id, name, created_at, created_by)
-VALUES (8, 'ROLE_ADMIN', CURRENT_TIMESTAMP, 'Anonymous user');
+VALUES (1, 'ROLE_ADMIN', CURRENT_TIMESTAMP, 'Anonymous user');
