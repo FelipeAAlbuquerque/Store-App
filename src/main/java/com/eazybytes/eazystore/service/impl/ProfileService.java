@@ -47,7 +47,7 @@ public class ProfileService implements IProfileService {
         return profileResponseDto;
     }
 
-    private Customer getAuthenticatedCustomer() {
+    public Customer getAuthenticatedCustomer() {
         Authentication authentication =SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
         return customerRepository.findByEmail(email).
@@ -58,11 +58,9 @@ public class ProfileService implements IProfileService {
         ProfileResponseDto profileResponseDto = new ProfileResponseDto();
         BeanUtils.copyProperties(customer, profileResponseDto);
         if (customer.getAddress() != null) {
-            profileResponseDto.setStreet(customer.getAddress().getStreet());
-            profileResponseDto.setCity(customer.getAddress().getCity());
-            profileResponseDto.setState(customer.getAddress().getState());
-            profileResponseDto.setPostalCode(customer.getAddress().getPostalCode());
-            profileResponseDto.setCountry(customer.getAddress().getCountry());
+            AddressDto addressDto = new AddressDto();
+            BeanUtils.copyProperties(customer.getAddress(), addressDto);
+            profileResponseDto.setAddress(addressDto);
         }
         return profileResponseDto;
     }
