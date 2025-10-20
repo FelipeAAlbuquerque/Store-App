@@ -1,5 +1,7 @@
 package com.eazybytes.eazystore.controller;
 
+import com.eazybytes.eazystore.dto.PaymentIntentRequestDto;
+import com.eazybytes.eazystore.dto.PaymentIntentResponseDto;
 import com.eazybytes.eazystore.service.IPaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
