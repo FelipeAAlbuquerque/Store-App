@@ -9,26 +9,24 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService implements IProductService {
 
-    private final ProductRepository repository;
+    private final ProductRepository productRepository;
 
     @Override
     public List<ProductDto> getProducts() {
-        var productList = repository.findAll();
-        return productList
-                .stream()
-                .map(this::transformToDTO)
-                .toList();
-
+        return productRepository.findAll()
+                .stream().map(this::transformToDTO).collect(Collectors.toList());
     }
 
-    public ProductDto transformToDTO(Product product) {
-        ProductDto dto = new ProductDto();
-        BeanUtils.copyProperties(product, dto);
-        return dto;
+    private ProductDto transformToDTO(Product product) {
+        ProductDto productDto = new ProductDto();
+        BeanUtils.copyProperties(product, productDto);
+        productDto.setProductId(product.getProductId());
+        return productDto;
     }
 }
