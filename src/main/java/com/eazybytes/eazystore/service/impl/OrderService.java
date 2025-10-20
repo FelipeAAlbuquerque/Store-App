@@ -4,6 +4,7 @@ import com.eazybytes.eazystore.constants.ApplicationConstants;
 import com.eazybytes.eazystore.dto.OrderRequestDto;
 import com.eazybytes.eazystore.entity.Customer;
 import com.eazybytes.eazystore.entity.Order;
+import com.eazybytes.eazystore.entity.OrderItem;
 import com.eazybytes.eazystore.entity.Product;
 import com.eazybytes.eazystore.repository.OrderRepository;
 import com.eazybytes.eazystore.repository.ProductRepository;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class OrderServiceImpl implements IOrderService {
+public class OrderService implements IOrderService {
 
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
