@@ -2,6 +2,7 @@ package com.eazybytes.eazystore.filter;
 
 import com.eazybytes.eazystore.constants.ApplicationConstants;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.FilterChain;
