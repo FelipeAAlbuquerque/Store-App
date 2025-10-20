@@ -1,5 +1,10 @@
 package com.eazybytes.eazystore.service.impl;
 
+import com.eazybytes.eazystore.entity.Customer;
+import com.eazybytes.eazystore.entity.Order;
+import com.eazybytes.eazystore.repository.OrderRepository;
+import com.eazybytes.eazystore.repository.ProductRepository;
+import com.eazybytes.eazystore.service.IOrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
