@@ -1,6 +1,7 @@
 package com.eazybytes.eazystore.service.impl;
 
 import com.eazybytes.eazystore.constants.ApplicationConstants;
+import com.eazybytes.eazystore.dto.OrderItemReponseDto;
 import com.eazybytes.eazystore.dto.OrderRequestDto;
 import com.eazybytes.eazystore.dto.OrderResponseDto;
 import com.eazybytes.eazystore.entity.Customer;
@@ -53,16 +54,47 @@ public class OrderService implements IOrderService {
 
     @Override
     public List<OrderResponseDto> getCustomerOrders() {
-        return List.of();
+        Customer customer =profileService.getAuthenticatedCustomer();
+        List<Order> orders = orderRepository.findByCustomerOrderByCreatedAtDesc(customer);
+        return orders.stream().map(this::mapToOrderResponseDTO).collect(Collectors.toList());
     }
 
     @Override
     public List<OrderResponseDto> getAllPendingOrders() {
-        return List.of();
+        List<Order> orders = orderRepository.findByOrderStatus(ApplicationConstants.ORDER_STATUS_CREATED);
+        return orders.stream().map(this::mapToOrderResponseDTO).collect(Collectors.toList());
     }
 
     @Override
     public Order updateOrderStatus(Long orderId, String orderStatus) {
-        return null;
+        Order order = orderRepository.findById(orderId).orElseThrow(
+                () -> new ResourceNotFoundException("Order", "OrderID", orderId.toString())
+        );
+        order.setOrderStatus(orderStatus);
+        return orderRepository.save(order);
+    }
+
+    /**
+     * Map Order entity to OrderResponseDto
+     */
+    private OrderResponseDto mapToOrderResponseDTO(Order order) {
+        // Map Order Items
+        List<OrderItemReponseDto> itemDTOs = order.getOrderItems().stream()
+                .map(this::mapToOrderItemResponseDTO)
+                .collect(Collectors.toList());
+        OrderResponseDto orderResponseDto = new OrderResponseDto(order.getOrderId()
+                , order.getOrderStatus(), order.getTotalPrice(), order.getCreatedAt().toString()
+                , itemDTOs);
+        return orderResponseDto;
+    }
+
+    /**
+     * Map OrderItem entity to OrderItemResponseDto
+     */
+    private OrderItemReponseDto mapToOrderItemResponseDTO(OrderItem orderItem) {
+        OrderItemReponseDto itemDTO = new OrderItemReponseDto(
+                orderItem.getProduct().getName(), orderItem.getQuantity(),
+                orderItem.getPrice(), orderItem.getProduct().getImageUrl());
+        return itemDTO;
     }
 }
