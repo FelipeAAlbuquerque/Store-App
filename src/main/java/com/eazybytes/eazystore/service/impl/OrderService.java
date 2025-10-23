@@ -2,6 +2,7 @@ package com.eazybytes.eazystore.service.impl;
 
 import com.eazybytes.eazystore.constants.ApplicationConstants;
 import com.eazybytes.eazystore.dto.OrderRequestDto;
+import com.eazybytes.eazystore.dto.OrderResponseDto;
 import com.eazybytes.eazystore.entity.Customer;
 import com.eazybytes.eazystore.entity.Order;
 import com.eazybytes.eazystore.entity.OrderItem;
@@ -48,5 +49,20 @@ public class OrderService implements IOrderService {
         order.setOrderItems(orderItems);
         orderRepository.save(order);
 
+    }
+
+    @Override
+    public List<OrderResponseDto> getCustomerOrders() {
+        return List.of();
+    }
+
+    @Override
+    public List<OrderResponseDto> getAllPendingOrders() {
+        return List.of();
+    }
+
+    @Override
+    public Order updateOrderStatus(Long orderId, String orderStatus) {
+        return null;
     }
 }
