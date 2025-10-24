@@ -3,6 +3,7 @@ package com.eazybytes.eazystore.controller;
 import com.eazybytes.eazystore.dto.*;
 import com.eazybytes.eazystore.entity.Customer;
 import com.eazybytes.eazystore.repository.CustomerRepository;
+import com.eazybytes.eazystore.repository.RoleRepository;
 import com.eazybytes.eazystore.util.JwtUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
