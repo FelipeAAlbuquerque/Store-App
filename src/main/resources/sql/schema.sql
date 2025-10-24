@@ -68,6 +68,14 @@ CREATE TABLE IF NOT EXISTS roles (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS customer_roles (
+   customer_id BIGINT NOT NULL,
+   role_id     BIGINT NOT NULL,
+   PRIMARY KEY (customer_id, role_id),
+   FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE,
+   FOREIGN KEY (role_id) REFERENCES roles(role_id) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS orders
 (
     order_id       BIGINT AUTO_INCREMENT PRIMARY KEY,
