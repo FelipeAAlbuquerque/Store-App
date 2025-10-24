@@ -1,5 +1,6 @@
 package com.eazybytes.eazystore.controller;
 
+import com.eazybytes.eazystore.dto.ContactInfoDto;
 import com.eazybytes.eazystore.dto.ContactRequestDto;
 import com.eazybytes.eazystore.service.IContactService;
 import jakarta.validation.Valid;
